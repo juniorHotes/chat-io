@@ -104,3 +104,26 @@ button {
 button:hover {
     background-color: #3758bb;
 }
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-top-right-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-resizer {
+    height: 200px;
+}
