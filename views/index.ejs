@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Socket io</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Chat io</h1>
+            <input type="text" name="username" id="username" placeholder="Nome de usuário" required>
+        </header>
+        <div id="chat-container">
+            <div id="chat-msgs"></div>
+            <footer>
+                <textarea name="msg" id="msg" required></textarea>
+                <button onclick="send()">Send</button>
+            </footer>
+        </div>
+    </div>
+
+   <script src="../socket.js"></script>
+   <script>
+        const socket = io("http://localhost:3000"); // connect
+        socket.on("disconnect", () => {
+            console.log("disconnect");
+        });
+        const usernameField = document.getElementById('username');
+        const msgField = document.getElementById('msg');
+
+        socket.on("showmsg", (data) => {
+            const chatMsgs = document.getElementById('chat-msgs');
+
+            const sendMsg = usernameField.value != data.username ? "send" : "emit";
+
+            chatMsgs.innerHTML += `
+            <div>
+                <div class="inner ${sendMsg}">
+                    <span>${data.username}</span>
+                    <p>${data.msg}</p>
+                </div>
+            </div>`;
+        });
+
+        function send() {
+            if(usernameField.value === "") return alert('Insert your user name')
+            if(msgField.value === "") return alert('Insert your mensage')
+
+            const msg = msgField.value;
+            const username = usernameField.value;
+
+            socket.emit('msg', { msg, username });
+        }
+    </script>
+</body>
+
+</html>
