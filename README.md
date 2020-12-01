@@ -17,3 +17,5 @@ Start the server
 node index.js
 ```
 
+- To test sending and receiving messages you must open two tabs and start chatting with yourself
+
