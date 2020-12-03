@@ -2,6 +2,7 @@
 Simple chat built with socket.io
 
 # :rocket: Functionalities
+This chat is simply to show how easy it is to build a small chat platform using socket.io
 
 ## :computer: Technologies
 * [Node.js](https://nodejs.org/en/)
