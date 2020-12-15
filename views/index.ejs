@@ -38,7 +38,7 @@
             const sendMsg = usernameField.value != data.username ? "send" : "emit";
 
             chatMsgs.innerHTML += `
-            <div>
+            <div class='content-msn'>
                 <div class="inner ${sendMsg}">
                     <span>${data.username}</span>
                     <p>${data.msg}</p>
@@ -59,6 +59,8 @@
             socket.emit('msg', { msg, username });
 
             msgField.value = "";
+
+            msgField.focus()
         }
     </script>
 </body>
