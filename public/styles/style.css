@@ -39,9 +39,14 @@ header input {
     overflow-y: auto;
     padding: 12px;
 }
-
+.content-msn {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 4px;
+    display: inline-block;
+}
 .inner {
-    width: 300px;
+    max-width: 350px;
     padding: 8px;
     overflow-wrap: break-word;
     margin-bottom: 10px;
